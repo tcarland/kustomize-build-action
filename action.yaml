@@ -1,0 +1,15 @@
+---
+name: 'kustomize-build-action'
+author: 'tcarland at gmail dot com'
+description: 'Build a Kustomize project'
+inputs:
+  kustomize_dir:
+    description: 'Path to the kustomize manifest directory'
+    required: true
+    default: '.'
+outputs:
+  kustomize_build_output:
+    description: 'The output of the kustomize build command'
+runs:
+  using: 'docker'
+  image: 'Containerfile'
