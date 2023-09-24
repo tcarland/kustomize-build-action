@@ -12,4 +12,4 @@ outputs:
     description: 'The output of the kustomize build command'
 runs:
   using: 'docker'
-  image: 'Containerfile'
+  image: 'Dockerfile'
