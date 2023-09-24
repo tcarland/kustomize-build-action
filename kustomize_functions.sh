@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-
+version="v1"
 kustomize_dir="."
 
 
@@ -9,15 +9,17 @@ function parseInputs()
     if [ -n "$INPUT_KUSTOMIZE_DIR" ]; then
         kustomize_dir="$INPUT_KUSTOMIZE_DIR"
     fi
-    if [ -n "$INPUT_KUSTOMIZE_OUTPUT_FILE" ]; then
-        kustomize_output_file="$INPUT_KUSTOMIZE_OUTPUT_FILE"
-    fi
 }
 
 
 function kustomizeBuild()
 {
     echo "build: info: kustomize build ${kustomize_dir}"
+
+    if [ -z "${kustomize_dir}" ]; then
+        echo "build: error: kustomize directory not specified"
+        return 1
+    fi
 
     output=$( kustomize build "${kustomize_dir}" )
 
