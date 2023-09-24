@@ -7,9 +7,6 @@ inputs:
     description: 'Path to the kustomize manifest directory'
     required: true
     default: '.'
-outputs:
-  kustomize_build_output:
-    description: 'The output of the kustomize build command'
 runs:
   using: 'docker'
   image: 'Dockerfile'

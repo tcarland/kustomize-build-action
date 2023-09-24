@@ -27,7 +27,6 @@ function kustomizeBuild()
         echo "build: error: kustomize build failed with exit code $build_exit_code"
     else
         echo "build: info: kustomize build succeeded"
-        echo "kustomize_build_output=$output" >> $GITHUB_OUTPUT
     fi
 
     return $build_exit_code
