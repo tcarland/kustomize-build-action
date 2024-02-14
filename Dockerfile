@@ -1,5 +1,5 @@
 FROM ubuntu:22.04
-ARG kustomize_version=v5.2.1
+ARG kustomize_version=v5.3.0
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
