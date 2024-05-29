@@ -1,7 +1,7 @@
 kustomize-build-action
 ======================
 Author: Timothy C. Arland <tcarland@gmail.com>
-Version: v1.1.1
+Version: v1.1.2
 
 A custom GitHub Action for building kustomize projects via a GitHub
 workflow. 
