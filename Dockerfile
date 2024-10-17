@@ -1,7 +1,8 @@
 FROM ubuntu:22.04
-ARG kustomize_version=v5.4.1
+ARG kustomize_version=v5.4.3
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
     ca-certificates \
     curl \
     git \
