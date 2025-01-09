@@ -1,10 +1,14 @@
 kustomize-build-action
 ======================
-Author: Timothy C. Arland <tcarland@gmail.com>
-Version: v1.1.2
+Author: Timothy C. Arland <tcarland at gmail dot com>
+Action Version: v1.1.3
+Kustomize Version: v5.4.3
 
-A custom GitHub Action for building kustomize projects via a GitHub
-workflow. 
+A custom GitHub Action for building [kustomize](https://github.com/kubernetes-sigs/kustomize) 
+projects via a GitHub workflow.  
+
+Note the version of this action matches the exact version of *kustomize*
+being used by the action.
 
 ## Inputs
 
