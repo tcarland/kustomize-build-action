@@ -1,5 +1,8 @@
 FROM ubuntu:22.04
-ARG kustomize_version=v5.4.3
+ARG kustomize_version=v5.6.0
+
+LABEL description="kustomize-build-action"
+label version="1.2.0"
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
