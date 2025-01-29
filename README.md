@@ -1,8 +1,8 @@
 kustomize-build-action
 ======================
 Author: Timothy C. Arland <tcarland at gmail dot com>
-Action Version: v1.1.3
-Kustomize Version: v5.4.3
+Action Version: v1.2.0
+Kustomize Version: v5.6.0
 
 A custom GitHub Action for building [kustomize](https://github.com/kubernetes-sigs/kustomize) 
 projects via a GitHub workflow.  
@@ -17,7 +17,6 @@ being used by the action.
 ## Example Usage
 
 A typical workflow yaml might look as follows:
-
 ```yaml
 name: 'Kustomize Build Action'
 

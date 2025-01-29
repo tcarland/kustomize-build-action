@@ -3,14 +3,12 @@
 version="v1"
 kustomize_dir="."
 
-
 function parseInputs()
 {
     if [ -n "$INPUT_KUSTOMIZE_DIR" ]; then
         kustomize_dir="$INPUT_KUSTOMIZE_DIR"
     fi
 }
-
 
 function kustomizeBuild()
 {
