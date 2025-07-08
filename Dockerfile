@@ -1,5 +1,5 @@
-FROM ubuntu:22.04
-ARG kustomize_version=v5.6.0
+FROM ubuntu:24.04
+ARG kustomize_version=v5.7.0
 
 LABEL description="kustomize-build-action"
 LABEL version="1.2.0"
