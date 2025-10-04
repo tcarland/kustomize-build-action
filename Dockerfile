@@ -1,10 +1,13 @@
 FROM ubuntu:24.04
-ARG kustomize_version=v5.7.0
+ARG kustomize_version=v5.7.1
+ARG RELEASE_VERSION=
 
-LABEL description="kustomize-build-action"
-LABEL version="1.2.0"
-LABEL author="Timothy C. Arland <tcarland at gmail dot com>"
-
+LABEL org.opencontainers.image.authors="Timothy C. Arland <tcarland at gmail dot com>" \
+      org.opencontainers.image.description="Kustomize GitHub Action" \
+      org.opencontainers.image.source="https://github.com/tcarland/kustomize-build-action" \
+      org.opencontainers.image.title="kustomize-build-action" \
+      org.opencontainers.image.version="${RELEASE_VERSION}"
+      
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     bash \
