@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM debian:12.12-slim
 ARG kustomize_version=v5.7.1
 ARG RELEASE_VERSION=
 

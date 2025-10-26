@@ -3,6 +3,14 @@
 version="v1"
 kustomize_dir="."
 
+
+if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+    echo "$0  is being executed directly."
+    echo " It is intended to be source'd"
+    exit 1
+fi
+
+
 function parseInputs()
 {
     if [ -n "$INPUT_KUSTOMIZE_DIR" ]; then
@@ -12,10 +20,10 @@ function parseInputs()
 
 function kustomizeBuild()
 {
-    echo "build: info: kustomize build ${kustomize_dir}"
+    echo "kustomizeBuild() info: 'kustomize build ${kustomize_dir}'"
 
     if [ -z "${kustomize_dir}" ]; then
-        echo "build: error: kustomize directory not specified"
+        echo "kustomizeBuild() error: kustomize directory not specified"
         return 1
     fi
 
@@ -24,9 +32,9 @@ function kustomizeBuild()
     build_exit_code=$?
 
     if [ $build_exit_code -ne 0 ]; then
-        echo "build: error: kustomize build failed with exit code $build_exit_code"
+        echo "kustomizeBuild() error: build failed with exit code $build_exit_code"
     else
-        echo "build: info: kustomize build succeeded"
+        echo "kustomizeBuild() info: build succeeded"
     fi
 
     return $build_exit_code
