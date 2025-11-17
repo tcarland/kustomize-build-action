@@ -6,7 +6,7 @@ kustomize_dir="."
 
 if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
     echo "$0  is being executed directly."
-    echo " It is intended to be source'd"
+    echo " It is intended to be sourced by the shell"
     exit 1
 fi
 

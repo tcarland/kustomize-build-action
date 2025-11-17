@@ -1,5 +1,5 @@
 FROM debian:12.12-slim
-ARG kustomize_version=v5.7.1
+ARG kustomize_version=v5.8.0
 ARG RELEASE_VERSION=
 
 LABEL org.opencontainers.image.authors="Timothy C. Arland <tcarland at gmail dot com>" \
