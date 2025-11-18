@@ -22,3 +22,4 @@ RUN mkdir -p /action
 COPY . /action
 
 ENTRYPOINT [ "/action/entrypoint.sh" ]
+
