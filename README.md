@@ -6,7 +6,7 @@ Author: Timothy C. Arland <tcarland at gmail dot com>
 A custom GitHub Action for building [kustomize](https://github.com/kubernetes-sigs/kustomize) 
 projects via a GitHub workflow.  
 
-Kustomize Version: v5.7.1
+Kustomize Version: v5.8.0
 
 
 ## Inputs
