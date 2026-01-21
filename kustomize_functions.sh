@@ -62,7 +62,7 @@ function kustomizeBuild()
         return 1
     fi
 
-    output=$( kustomize build "${kustomize_dir}" )
+    output=$( kustom build "${kustomize_dir}" )
 
     build_exit_code=$?
 
