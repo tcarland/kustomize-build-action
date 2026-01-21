@@ -1,5 +1,5 @@
-kustomize-build-action
-======================
+kustomize-build-action:v2
+========================
 Author: Timothy C. Arland <tcarland at gmail dot com>
 
 
@@ -34,10 +34,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Build
-        uses: tcarland/kustomize-build-action@v1
+        uses: tcarland/kustomize-build-action@v2
         with:
           kustomize_dir: './manifests'
 ```
