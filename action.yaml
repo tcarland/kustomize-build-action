@@ -1,7 +1,7 @@
 ---
 name: 'kustomize-build-action'
 author: 'tcarland at gmail dot com'
-description: 'Build a Kustomize project'
+description: 'Builds a Kustomize Project'
 inputs:
   kustomize_dir:
     description: 'Path to the kustomize manifest directory'

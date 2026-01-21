@@ -4,10 +4,11 @@ Author: Timothy C. Arland <tcarland at gmail dot com>
 
 
 A custom GitHub Action for building [kustomize](https://github.com/kubernetes-sigs/kustomize) 
-projects via a GitHub workflow.  
+projects via a GitHub workflow.  This also supports kustomize 
+wrapping helm charts.
 
-Kustomize Version: v5.8.0
-
+Kustomize Version: **v5.8.0**
+Helm Version: **v3.18.6**
 
 ## Inputs
 
