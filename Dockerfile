@@ -1,10 +1,13 @@
 FROM debian:12.13-slim
-ARG RELEASE_VERSION=""
+ARG RELEASE_VERSION="v2"
 
 # kustomize
 ARG kustomize_url="https://github.com/kubernetes-sigs/kustomize/releases/download"
 ARG kustomize_version="v5.8.0"
 ARG kustomize_path="kustomize%2F${kustomize_version}"
+# yq
+ARG yq_url="https://github.com/mikefarah/yq/releases/download"
+ARG yq_version="v4.49.2"
 # helm
 ARG helm_url="https://get.helm.sh"
 ARG helm_version="v3.18.6"
@@ -30,6 +33,10 @@ RUN curl -L https://github.com/kubernetes-sigs/kustomize/releases/download/kusto
 RUN curl -L ${kustomize_url}/${kustomize_path}/kustomize_${kustomize_version}_linux_amd64.tar.gz | \
     tar xvz -C /usr/local/bin/ && \
     chmod +x /usr/local/bin/kustomize
+
+# yq
+RUN curl -L ${yq_url}/${yq_version}/yq_linux_amd64 -o /usr/local/bin/yq && \
+    chmod +x /usr/local/bin/yq
 
 # Helm
 RUN curl -L ${helm_url}/helm-${helm_version}-linux-amd64.tar.gz | \
