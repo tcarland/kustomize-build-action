@@ -7,7 +7,7 @@ ARG kustomize_version="v5.8.0"
 ARG kustomize_path="kustomize%2F${kustomize_version}"
 # yq
 ARG yq_url="https://github.com/mikefarah/yq/releases/download"
-ARG yq_version="v4.49.2"
+ARG yq_version="v4.52.1"
 # helm
 ARG helm_url="https://get.helm.sh"
 ARG helm_version="v3.18.6"
@@ -24,10 +24,6 @@ RUN apt-get update && \
     ca-certificates \
     curl \
     tini
-
-RUN curl -L https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2F${kustomize_version}/kustomize_${kustomize_version}_linux_amd64.tar.gz \
-    | tar xz -C /usr/local/bin
-
 
 # kustomize
 RUN curl -L ${kustomize_url}/${kustomize_path}/kustomize_${kustomize_version}_linux_amd64.tar.gz | \
@@ -48,4 +44,3 @@ RUN mkdir -p /action
 COPY . /action
 
 ENTRYPOINT [ "/action/entrypoint.sh" ]
-
