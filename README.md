@@ -7,8 +7,9 @@ A custom GitHub Action for building [kustomize](https://github.com/kubernetes-si
 projects via a GitHub workflow.  This also supports kustomize 
 wrapping helm charts.
 
-Kustomize Version: **v5.8.0**
-Helm Version: **v3.18.6**
+Kustomize Version: **v5.8.1**
+Helm Version: **v3.19.4**
+yq Version: **4.52.4**
 
 ## Inputs
 
