@@ -3,14 +3,14 @@ ARG RELEASE_VERSION="v2"
 
 # kustomize
 ARG kustomize_url="https://github.com/kubernetes-sigs/kustomize/releases/download"
-ARG kustomize_version="v5.8.0"
+ARG kustomize_version="v5.8.1"
 ARG kustomize_path="kustomize%2F${kustomize_version}"
 # yq
 ARG yq_url="https://github.com/mikefarah/yq/releases/download"
-ARG yq_version="v4.52.1"
+ARG yq_version="v4.52.4"
 # helm
 ARG helm_url="https://get.helm.sh"
-ARG helm_version="v3.18.6"
+ARG helm_version="v3.19.4"
 
 LABEL org.opencontainers.image.authors="Timothy C. Arland <tcarland at gmail dot com>" \
       org.opencontainers.image.description="Kustomize GitHub Action" \

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-version="v1"
+version="v2"
 kustomize_dir="."
 
 
