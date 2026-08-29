@@ -11,21 +11,10 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
 fi
 
 
-# kustomize wrapper for auto-detecting helm charts
-function kustom()
+function hasHelm()
 {
-    local action=
-    local target=
+    local target="$1"
     local yml=
-    local helm="false"
-    local args=()
-
-    args+=("$@")
-    if [ ${#args[@]} -eq 2 ]; then
-        action=${args[0]}
-        target=${args[1]}
-        args=("${args[@]:2}")
-    fi
 
     if [ -r $target/base/kustomization.yaml ]; then
         yml=$target/base/kustomization.yaml
@@ -36,12 +25,10 @@ function kustom()
     fi
 
     if [[ $(yq e 'has("helmCharts")' $yml) == "true" ]]; then
-        action="$action --enable-helm"
+        return 0
     fi
 
-    ( \kustomize $action $target ${args[@]} )
-
-    return $?
+    return 0
 }
 
 
@@ -55,21 +42,55 @@ function parseInputs()
 
 function kustomizeBuild()
 {
-    echo "kustomizeBuild() info: 'kustomize build ${kustomize_dir}'"
-
+    local args=("build")
+    local build_exit_code=
+    
     if [ -z "${kustomize_dir}" ]; then
         echo "kustomizeBuild() error: kustomize directory not specified"
         return 1
     fi
 
-    output=$( kustom build "${kustomize_dir}" )
+    if hasHelm "$kustomize_dir"; then
+        args+=("--enable-helm")
+    fi
 
+    echo "kustomizeBuild() info: 'kustomize ${args[@]} ${kustomize_dir}'"
+
+    output=$( kustomize ${args[@]} "${kustomize_dir}" )
     build_exit_code=$?
 
     if [ $build_exit_code -ne 0 ]; then
         echo "kustomizeBuild() error: build failed with exit code $build_exit_code"
     else
         echo "kustomizeBuild() info: build succeeded"
+    fi
+
+    return $build_exit_code
+}
+
+
+function kubectlBuild()
+{
+    local args=("kustomize")
+    local build_exit_code=
+    
+    if [ -z "${kustomize_dir}" ]; then
+        echo "kustomizeBuild() error: kustomize directory not specified"
+        return 1
+    fi
+
+    if hasHelm "$kustomize_dir"; then
+        args+=("--enable-helm")
+    fi
+
+    echo "kubectlBuild() info: 'kubectl ${args[@]} ${kustomize_dir}'"
+   
+    output=$(kubectl ${args[@]} ${kustomize_dir})
+    
+    if [ $build_exit_code -ne 0 ]; then
+        echo "kubectlBuild() error: build failed with exit code $build_exit_code"
+    else
+        echo "kubectlBuild() info: build succeeded"
     fi
 
     return $build_exit_code
