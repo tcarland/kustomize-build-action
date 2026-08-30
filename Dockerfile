@@ -1,13 +1,16 @@
 FROM debian:12.13-slim
-ARG RELEASE_VERSION="v2"
+ARG RELEASE_VERSION="v2.0.1"
 
 # kustomize
 ARG kustomize_url="https://github.com/kubernetes-sigs/kustomize/releases/download"
 ARG kustomize_version="v5.8.1"
 ARG kustomize_path="kustomize%2F${kustomize_version}"
+# kubectl
+ARG kubectl_url="https://storage.googleapis.com/kubernetes-release/release" 
+ARG kubectl_version="v1.31.0"
 # yq
 ARG yq_url="https://github.com/mikefarah/yq/releases/download"
-ARG yq_version="v4.52.4"
+ARG yq_version="v4.53.6"
 # helm
 ARG helm_url="https://get.helm.sh"
 ARG helm_version="v3.19.4"
@@ -29,6 +32,11 @@ RUN apt-get update && \
 RUN curl -L ${kustomize_url}/${kustomize_path}/kustomize_${kustomize_version}_linux_amd64.tar.gz | \
     tar xvz -C /usr/local/bin/ && \
     chmod +x /usr/local/bin/kustomize
+
+# kubectl
+RUN curl -L ${kubectl_url}/${kubectl_version}/bin/linux/amd64/kubectl \
+    -o /usr/local/bin/kubectl && \
+    chmod +x /usr/local/bin/kubectl
 
 # yq
 RUN curl -L ${yq_url}/${yq_version}/yq_linux_amd64 -o /usr/local/bin/yq && \

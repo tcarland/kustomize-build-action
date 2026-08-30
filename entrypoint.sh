@@ -7,5 +7,6 @@ alias kustomize="kustom"
 
 parseInputs
 kustomizeBuild
+kubectlBuild
 
 exit $?
