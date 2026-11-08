@@ -1,19 +1,19 @@
 FROM debian:12.13-slim
-ARG RELEASE_VERSION="v2.0.1"
+ARG RELEASE_VERSION="v2.0.3"
 
 # kustomize
 ARG kustomize_url="https://github.com/kubernetes-sigs/kustomize/releases/download"
-ARG kustomize_version="v5.8.1"
+ARG kustomize_version="v5.8.3"
 ARG kustomize_path="kustomize%2F${kustomize_version}"
 # kubectl
 ARG kubectl_url="https://storage.googleapis.com/kubernetes-release/release" 
 ARG kubectl_version="v1.31.0"
 # yq
 ARG yq_url="https://github.com/mikefarah/yq/releases/download"
-ARG yq_version="v4.53.6"
+ARG yq_version="v4.54.2"
 # helm
 ARG helm_url="https://get.helm.sh"
-ARG helm_version="v3.19.4"
+ARG helm_version="v4.2.4"
 
 LABEL org.opencontainers.image.authors="Timothy C. Arland <tcarland at gmail dot com>" \
       org.opencontainers.image.description="Kustomize GitHub Action" \
